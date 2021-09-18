@@ -1,3 +1,7 @@
+from PID import PID
+from lowpass import LowPassFilter
+from yaw_controller import YawController
+import rospy
 
 GAS_DENSITY = 2.858
 ONE_MPH = 0.44704
@@ -41,6 +45,11 @@ class Controller(object):
 
         current_vel = self.vel_lpf.filt(current_vel)
 
+        rospy.logwarn("Target Angular vel: {0} \n".format(angular_vel))
+        rospy.logwarn("Target vel: {0} \n".format(linear_vel))
+        rospy.logwarn("Current vel: {0} \n".format(current_vel))
+        rospy.logwarn("Filtered vel: {0} \n".format(self.vel_lpf.get()))
+        
         steering = self.yaw_controller.get_steering(linear_vel, angular_vel, current_vel)
 
         vel_error = linear_vel - current_vel

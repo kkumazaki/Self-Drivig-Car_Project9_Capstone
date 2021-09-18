@@ -61,7 +61,7 @@ class DBWNode(object):
                                     accel_limit = accel_limit,
                                     wheel_radius = wheel_radius,
                                     wheel_base = wheel_base,
-                                    steer_ratioa = steer_ratio,
+                                    steer_ratio = steer_ratio,
                                     max_lat_accel = max_lat_accel,
                                     max_steer_angle = max_steer_angle)
 
@@ -86,9 +86,9 @@ class DBWNode(object):
             # You should only publish the control commands if dbw is enabled
             if not None in (self.current_vel, self.linear_vel, self.angular_vel):
                 self.throttle, self.brake, self.steering = self.controller.control(self.current_vel,
-                                                                        self.dbw_enabled,
-                                                                        self.linear_vel,
-                                                                        self.angular_vel)
+                                                                    self.dbw_enabled,
+                                                                    self.linear_vel,
+                                                                    self.angular_vel)
              if self.dbw_enabled:
                 self.publish(self.throttle, self.brake, self.steering)
             rate.sleep()
