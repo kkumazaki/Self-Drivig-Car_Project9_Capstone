@@ -1,4 +1,4 @@
-from PID import PID
+from pid import PID
 from lowpass import LowPassFilter
 from yaw_controller import YawController
 import rospy
@@ -23,7 +23,7 @@ class Controller(object):
 
         tau = 0.5 # 1/(2*pi*tau) = cutoff frequency
         ts = 0.02 # Sample time
-        self.vel_lpf - LowPassFilter(tau, ts)
+        self.vel_lpf = LowPassFilter(tau, ts)
 
         self.vehicle_mass = vehicle_mass
         self.fuel_capacity = fuel_capacity
