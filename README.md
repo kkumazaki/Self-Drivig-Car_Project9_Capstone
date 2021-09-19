@@ -46,12 +46,14 @@ The final code was able to achieve the Project Rubric as below.
 -	Controller commands are published to operate Carla’s throttle, brake, and steering.
 -	Successfully navigate the full track more than once.  
 
-Carla started to run after the traffic light became from red to green.
+Carla started to run after the traffic light became from red to green.  
+
 <img src="result/fig1.png" width="240" alt="Combined Image" />
 
-When Carla reached the red light, it started to decelerate and stop in front of the intersection.
+When Carla reached the red light, it started to decelerate and stop in front of the intersection.  
 
-<img src="result/fig2.png" width="240" alt="Combined Image" />
+<img src="result/fig2.png" width="240" alt="Combined Image" />  
+
 <img src="result/fig3.png" width="240" alt="Combined Image" />
 
 I think if I was able to set bigger LOOKAHEAD_WPS, Carla was able to stop earlier than this.
