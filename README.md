@@ -22,16 +22,16 @@ Use “traffic_waypoint” to change the waypoint target velocities, then publis
 
 ## 3. Submission
 ### (1) GitHub
-https://github.com/kkumazaki/Self-Driving-Car_Project9_Capstone[
+https://github.com/kkumazaki/Self-Driving-Car_Project9_Capstone
 
 ### (2) Directory
 I cloned the basic repository from Udacity https://github.com/udacity/CarND-Capstone
 and modified the following files.
--	Writeup_of_Lesson18.pdf: This file
--	/ros/src/waypoint_updater/
+####	Writeup_of_Lesson18.pdf: This file
+####	/ros/src/waypoint_updater/
 -	waypoint_updater.py: Updates the target velocity property of each waypoint based on traffic light.
 -	waypoint_loader.py: Generates and publishes the static waypoint data.
--	/ros/src/twist_controller/
+####	/ros/src/twist_controller/
 -	dbw_node.py: Publishes throttle, steering, brake commands to control the vehicle.
 -	twist_controller.py: Generate target values using PID controller, low pass filter, etc.
 -	pid.py: PID controller. (I only modified this module to add loggings)
