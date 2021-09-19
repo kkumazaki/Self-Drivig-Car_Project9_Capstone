@@ -118,6 +118,11 @@ class DBWNode(object):
         bcmd.pedal_cmd = brake
         self.brake_pub.publish(bcmd)
 
+        rospy.logwarn("---Drive By Wire---")
+        rospy.logwarn("Throttle Command: {0} \n".format(throttle))
+        rospy.logwarn("Brake Command: {0} \n".format(brake))
+        rospy.logwarn("Steering Command: {0} \n".format(steer))
+        rospy.logwarn("---------------------------------")
 
 if __name__ == '__main__':
     DBWNode()
