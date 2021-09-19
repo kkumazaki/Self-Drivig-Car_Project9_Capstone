@@ -120,7 +120,7 @@ class DBWNode(object):
 
         rospy.logwarn("---Drive By Wire---")
         rospy.logwarn("Throttle Command: {0} \n".format(throttle))
-        rospy.logwarn("Brake Command: {0} \n".format(brake))
+        rospy.logwarn("Brake Command:    {0} \n".format(brake))
         rospy.logwarn("Steering Command: {0} \n".format(steer))
         rospy.logwarn("---------------------------------")
 

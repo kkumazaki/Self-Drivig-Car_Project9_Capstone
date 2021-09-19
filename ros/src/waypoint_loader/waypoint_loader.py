@@ -65,7 +65,14 @@ class WaypointLoader(object):
         last.twist.twist.linear.x = 0.
         for wp in waypoints[:-1][::-1]:
             dist = self.distance(wp.pose.pose.position, last.pose.pose.position)
-            vel = math.sqrt(2 * MAX_DECEL * dist)
+
+            # Smoothing the deceleration profile
+            #vel = math.sqrt(2 * MAX_DECEL * dist)
+            if dist < 200:
+                vel = wp.twist.twist.linear.x * 0.6 * (1.0+math.sin(math.pi*(dist/200. - 0.5)))
+            else:
+                vel = wp.twist.twist.linear.x * 1.2
+
             if vel < 1.:
                 vel = 0.
             wp.twist.twist.linear.x = min(vel, wp.twist.twist.linear.x)

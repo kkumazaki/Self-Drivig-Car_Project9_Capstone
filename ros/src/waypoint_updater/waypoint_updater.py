@@ -108,9 +108,17 @@ class WaypointUpdater(object):
             p = Waypoint()
             p.pose = wp.pose
 
-            stop_idx = max(self.stopline_wp_idx - closest_idx - 2, 0) # Two waypoints back from line so front of car stops at light point
+            #stop_idx = max(self.stopline_wp_idx - closest_idx - 2, 0) # Two waypoints back from line so front of car stops at light point
+            stop_idx = max(self.stopline_wp_idx - closest_idx - 3, 0) #  It's better to have a little more space.
             dist = self.distance(waypoints, i, stop_idx)
-            vel = math.sqrt(2 * MAX_DECEL * dist) # This can be improved by smoothing the deceleration profile.
+
+            # Smoothing the deceleration profile
+            #vel = math.sqrt(2 * MAX_DECEL * dist) # This can be improved by smoothing the deceleration profile.
+            if dist < 200:
+                vel = wp.twist.twist.linear.x * 0.6 * (1.0+math.sin(math.pi*(dist/200. - 0.5)))
+            else:
+                vel = wp.twist.twist.linear.x * 1.2
+
             if vel < 1.0:
                 vel = 0.0
 
